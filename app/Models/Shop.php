@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model
 {
     use HasFactory;
-            public function toId()
+            public function Liked()
     {
         return $this->hasMany('App\Models\Like');
     }
 
-    public function fromId()
+    public function Reserved()
     {
-        return $this->hasMany('App\Models\Book');
+        return $this->hasMany('App\Models\Reservation');
     }
 }
 

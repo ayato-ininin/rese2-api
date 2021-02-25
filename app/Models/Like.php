@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
-              public function to2UserId()
+              public function toUsers()
     {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function from2UserId()
+    public function toUsersId()
     {
         return $this->belongsTo('App\Models\Shop');
     }

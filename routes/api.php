@@ -9,13 +9,13 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\ShopsController;
-use App\Http\Controllers\BooksController;
+use App\Http\Controllers\ReservationController;
 
 Route::post('/register',[RegisterController::class,'post']);
 Route::post('/login',[LoginController::class,'post']);
 Route::post('/logout',[LogoutController::class,'post']);
 Route::post('/users',[UsersController::class,'post']);
 Route::apiResource('/shops',ShopsController::class);
-Route::apiResource('/books',BooksController::class);
+Route::apiResource('/reservations',ReservationController::class);
 Route::apiResource('/likes',LikesController::class);
 

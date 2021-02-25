@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Reservation extends Model
 {
-     use HasFactory;
-     public function to1UserId()
+    use HasFactory;
+        public function toUser()
     {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function from1UserId()
+    public function toUserId()
     {
         return $this->belongsTo('App\Models\Shop');
     }
-
 }

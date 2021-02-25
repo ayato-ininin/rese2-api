@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-class BooksController extends Controller
+class ReservationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,11 @@ class BooksController extends Controller
      */
     public function index()
     {
-          $items=Book::all();
+         $items=Reservation::all();
         return response()->json([
             'message'=>'ok',
             'data'=>$items
         ],200);
-
     }
 
     /**
@@ -32,7 +31,7 @@ class BooksController extends Controller
     public function store(Request $request)
     {
         $now=Carbon::now();
-        $item=new Book;
+        $item=new Reservation;
         $item->user_id=$request->user_id;
         $item->shop_id=$request->shop_id;
         $item->date=$request->date;
@@ -50,12 +49,12 @@ class BooksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show(Reservation $reservation)
     {
-        $item=Book::where('id',$book->id)->first();
+        $item=Reservation::where('id',$reservation->id)->first();
         if ($item) {
             return response()->json([
                 'message' => 'OK',
@@ -73,10 +72,10 @@ class BooksController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, Reservation $reservation)
     {
         //
     }
@@ -84,12 +83,12 @@ class BooksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(Reservation $reservation)
     {
-           $item=Book::where('id',$book->id)->delete();
+         $item=Reservation::where('id',$reservation->id)->delete();
         if ($item) {
             return response()->json([
                 'message' => 'Deleted successfully',
@@ -99,6 +98,5 @@ class BooksController extends Controller
                 'message' => 'Not found',
             ], 404);
         }
-
     }
 }

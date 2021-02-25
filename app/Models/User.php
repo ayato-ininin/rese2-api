@@ -40,14 +40,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-        public function toUserId()
+        public function Likes()
     {
         return $this->hasMany('App\Models\Like');
     }
 
-    public function fromUserId()
+    public function Reserves()
     {
-        return $this->hasMany('App\Models\Book');
+        return $this->hasMany('App\Models\Reservation');
     }
     
 }
