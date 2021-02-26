@@ -14,13 +14,22 @@ class CreateReservationsTable extends Migration
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->id();
-            $table->string('user_id');
-            $table->string('shop_id');
+            $table->bigincrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('shop_id');
             $table->string('date');
             $table->string('time');
             $table->string('number');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('cascade');
+            $table->foreign('shop_id')
+                    ->references('id')
+                    ->on('shops')
+                    ->onDelete('cascade');
         });
     }
 
