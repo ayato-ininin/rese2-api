@@ -10,7 +10,7 @@ use App\Models\Like;
 
 class UsersController extends Controller
 {
-    public function post(Request $request)
+    public function get(Request $request)
     {
         if($request->has('email')){
             $items=User::where('email',$request->email)->first();

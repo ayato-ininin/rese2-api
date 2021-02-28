@@ -14,7 +14,7 @@ use App\Http\Controllers\ReservationController;
 Route::post('/register',[RegisterController::class,'post']);
 Route::post('/login',[LoginController::class,'post']);
 Route::post('/logout',[LogoutController::class,'post']);
-Route::post('/users',[UsersController::class,'post']);
+Route::get('/users',[UsersController::class,'get']);
 Route::apiResource('/shops',ShopsController::class);
 Route::apiResource('/reservations',ReservationController::class);
 Route::apiResource('/likes',LikesController::class);
