@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model
 {
     use HasFactory;
-            public function Liked()
+    public function Likes()
     {
         return $this->hasMany('App\Models\Like');
     }
 
-    public function Reserved()
+    public function Reserves()
     {
         return $this->hasMany('App\Models\Reservation');
     }
