@@ -33,7 +33,6 @@ class ShopsController extends Controller
         $item=Shop::where('id',$shop->id)->first();
         if($item){
             return response()->json([
-                'message'=>'ok',
                 'data'=>$item
             ],200);
         }else{
