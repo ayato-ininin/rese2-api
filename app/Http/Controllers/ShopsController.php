@@ -25,7 +25,6 @@ class ShopsController extends Controller
         $item->introduction=$request->introduction;
         $item->save();
         return response()->json([
-            'message'=>'shop created',
             'data'=>$item
         ],200);
     }
