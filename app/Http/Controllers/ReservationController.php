@@ -41,7 +41,7 @@ class ReservationController extends Controller
         $item->updated_at=$now;
         $item->save();
         return response()->json([
-            'message'=>'reserve succesfully',
+            'message'=>'reserve successfully',
             'data'=>$item
         ],200);
     }

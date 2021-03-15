@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shop;
+use App\Models\Reservation;
+use App\Models\Like;
 
 class ShopsController extends Controller
 {
@@ -30,10 +32,15 @@ class ShopsController extends Controller
     }
     public function show(Shop $shop)
     {
-        $item=Shop::where('id',$shop->id)->first();
-        if($item){
+       
+        $items=Shop::where('id',$shop->id)->first();
+        if($items){
+            // $reserve=Reservation::where('user_id',$user)->get();
+            $likes=Like::where('shop_id',$shop->id)->where('user_id',$shop->user_id)->get();
             return response()->json([
-                'data'=>$item
+                'like'=>$likes,
+                // 'reserve'=>$reserve,
+                'data'=>$items
             ],200);
         }else{
             return response()->json([
