@@ -36,9 +36,9 @@ class ShopsController extends Controller
         $items=Shop::where('id',$shop->id)->first();
         if($items){
             // $reserve=Reservation::where('user_id',$user)->get();
-            $likes=Like::where('shop_id',$shop->id)->where('user_id',$shop->user_id)->get();
+            // $likes=Like::where('shop_id',$shop->id)->where('user_id',$shop->user_id)->get();
             return response()->json([
-                'like'=>$likes,
+                // 'like'=>$likes,
                 // 'reserve'=>$reserve,
                 'data'=>$items
             ],200);
