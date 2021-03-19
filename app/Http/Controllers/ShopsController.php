@@ -40,7 +40,7 @@ class ShopsController extends Controller
         
         if($items){
             $reserve=Reservation::where('shop_id',$shop->id)->where('user_id',$request->user_id)->get();
-            $likes=Like::where('shop_id',$shop->id)->where('user_id',$request->user_id)->first();
+            $likes=Like::where('shop_id',$shop->id)->where('user_id',$request->user_id)->get();
             return response()->json([
                 'like'=>$likes,
                 'reserve'=>$reserve,
