@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Reservation;
 use App\Models\Like;
+use Illuminate\Support\Facades\Log;
 
 class ShopsController extends Controller
 {
@@ -16,6 +17,7 @@ class ShopsController extends Controller
             'message'=>'ok',
             'data'=>$items
         ],200);
+    
     }
     public function store(Request $request)
     {
@@ -30,16 +32,18 @@ class ShopsController extends Controller
             'data'=>$item
         ],200);
     }
-    public function show(Shop $shop)
+    public function show(Shop $shop,Request $request) 
     {
        
+        Log::debug($shop);   
         $items=Shop::where('id',$shop->id)->first();
+        
         if($items){
-            // $reserve=Reservation::where('user_id',$user)->get();
-            // $likes=Like::where('shop_id',$shop->id)->where('user_id',$shop->user_id)->get();
+            $reserve=Reservation::where('shop_id',$shop->id)->where('user_id',$request->user_id)->get();
+            $likes=Like::where('shop_id',$shop->id)->where('user_id',$request->user_id)->get();
             return response()->json([
-                // 'like'=>$likes,
-                // 'reserve'=>$reserve,
+                'like'=>$likes,
+                'reserve'=>$reserve,
                 'data'=>$items
             ],200);
         }else{
