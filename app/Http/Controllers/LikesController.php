@@ -44,9 +44,9 @@ class LikesController extends Controller
         //     ],404);
         // }
     }
-     public function destroy(Like $like)
+     public function destroy(Like $like, Request $request)
     {
-        $item=Like::where('id',$like->id)->delete();
+        $item=Like::where('shop_id',$request->shop_id)->where('user_id',$request->user_id)->delete();
          if ($item) {
             return response()->json(
                 ['message' => 'Like deleted successfully'],
