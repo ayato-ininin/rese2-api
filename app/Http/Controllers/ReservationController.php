@@ -14,14 +14,7 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-         $items=Reservation::all();
-        return response()->json([
-            'message'=>'ok',
-            'data'=>$items
-        ],200);
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -29,7 +22,7 @@ class ReservationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function post(Request $request)
     {
         $now=Carbon::now();
         $item=new Reservation;
@@ -53,21 +46,7 @@ class ReservationController extends Controller
      * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function show(Reservation $reservation)
-    {
-        $item=Reservation::where('id',$reservation->id)->first();
-        if ($item) {
-            return response()->json([
-                'message' => 'OK',
-                'data' => $item
-            ], 200);
-        } else {
-            return response()->json([
-                'message' => 'Not found',
-            ], 404);
-        }
-
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -87,7 +66,7 @@ class ReservationController extends Controller
      * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservation $reservation)
+    public function delete(Reservation $reservation)
     {
          $item=Reservation::where('id',$reservation->id)->delete();
         if ($item) {

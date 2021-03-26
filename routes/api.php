@@ -16,10 +16,9 @@ Route::post('/login',[LoginController::class,'post']);
 Route::post('/logout',[LogoutController::class,'post']);
 Route::get('/users',[UsersController::class,'get']);
 Route::apiResource('/shops',ShopsController::class);
-Route::apiResource('/reservations',ReservationController::class);
-// Route::apiResource('/likes',LikesController::class);
 Route::post('/likes',[LikesController::class,'post']);
 Route::delete('/likes',[LikesController::class,'delete']);
 Route::get('/likes/shops',[LikesController::class,'getLikeShops']);
 Route::get('/reservations/shops',[ReservationController::class,'getReservationsShops']);
-
+Route::post('/reservations',[ReservationController::class,'post']);
+Route::delete('/reservations',[ReservationController::class,'delete']);
