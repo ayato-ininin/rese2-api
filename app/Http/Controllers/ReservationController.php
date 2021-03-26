@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\User;
 
 class ReservationController extends Controller
 {
@@ -99,4 +100,11 @@ class ReservationController extends Controller
             ], 404);
         }
     }
+     public function getReservationsShops(Request $request){
+        $user=User::find($request->user_id);
+        return response()->json(
+            ['data'=>$user->getShopsFromReservations],200
+        );
+    }
+   
 }

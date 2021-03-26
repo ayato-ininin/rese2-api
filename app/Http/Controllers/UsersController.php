@@ -13,15 +13,10 @@ class UsersController extends Controller
     public function get(Request $request)
     {
         if($request->has('email')){
-            $items=User::where('email',$request->email)->first();
-            // $content=User::find(1)->fromUserId();
-            $content=Reservation::where('user_id',$items->id)->get();
-            $likes=Like::where('user_id',$items->id)->get();
+            $items=User::where('email',$request->email)->first();       
             return response()->json([
                 'message'=>'User got succesfully',
                 'data'=>$items,
-                'likes'=>$likes,
-                'reserve'=>$content
             ],200);
         }else{
             return response()->json([

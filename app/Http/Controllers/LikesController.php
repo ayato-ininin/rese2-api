@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Like;
+use App\Models\User;
+
 
 class LikesController extends Controller
 {
     public function index()
     {
-        $item=Like::all();
-        return response()->json([
-            'message'=>'succesfully',
-            'data'=>$item
-        ],200);
+        // $item=Like::all();
+        // return response()->json([
+        //     'message'=>'succesfully',
+        //     'data'=>$item
+        // ],200);
     }
      public function store(Request $request)
     {
@@ -46,6 +48,7 @@ class LikesController extends Controller
     }
      public function destroy(Like $like, Request $request)
     {
+        $id=$like->id;
         $item=Like::where('shop_id',$request->shop_id)->where('user_id',$request->user_id)->delete();
          if ($item) {
             return response()->json(
@@ -59,4 +62,12 @@ class LikesController extends Controller
             );
     }
 }
+
+        public function getLikeShops(Request $request){
+        $user=User::find($request->user_id);
+        return response()->json(
+            ['data'=>$user->getShopsFromLikes],200
+        );
+        
+    }
 }

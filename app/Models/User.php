@@ -40,12 +40,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-        public function likes()
+        public function getShopsFromLikes()
     {
         return $this->belongsToMany('App\Models\Shop','likes');
     }
 
-    public function reserves()
+    public function getShopsFromReservations()
     {
         return $this->belongsToMany('App\Models\Shop','reservations');
     }
