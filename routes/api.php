@@ -19,5 +19,5 @@ Route::apiResource('/shops',ShopsController::class);
 Route::apiResource('/reservations',ReservationController::class);
 Route::apiResource('/likes',LikesController::class);
 Route::get('/likes/shops',[LikesController::class,'getLikeShops']);
-Route::get('/likes/reservations',[ReservationController::class,'getReservationsShops']);
+Route::get('/reservations/shops',[ReservationController::class,'getReservationsShops']);
 
