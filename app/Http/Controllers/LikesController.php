@@ -7,18 +7,16 @@ use Carbon\Carbon;
 use App\Models\Like;
 use App\Models\User;
 
-
 class LikesController extends Controller
 {
-    public function index()
-    {
-        // $item=Like::all();
-        // return response()->json([
-        //     'message'=>'succesfully',
-        //     'data'=>$item
-        // ],200);
+      public function getLikeShops(Request $request){
+        $user=User::find($request->user_id);
+        return response()->json(
+            ['data'=>$user->getShopsFromLikes],200
+        );
+        
     }
-     public function store(Request $request)
+         public function post(Request $request)
     {
         $now = Carbon::now();
         $param=new Like;
@@ -32,21 +30,7 @@ class LikesController extends Controller
             'data'=>$param
         ],200);
     }
-    public function show(Like $like)
-    {
-        // $item=Like::where('user_id',$like->id)->first();
-        // if($item){
-        //     return response()->json([
-        //         'message'=>'like succesfully',
-        //         'data'=>$item
-        //     ],200);
-        // }else{
-        //     return response()->json([
-        //         'message'=>'not found'
-        //     ],404);
-        // }
-    }
-     public function destroy(Like $like, Request $request)
+       public function delete(Like $like, Request $request)
     {
         $id=$like->id;
         $item=Like::where('shop_id',$request->shop_id)->where('user_id',$request->user_id)->delete();
@@ -63,11 +47,6 @@ class LikesController extends Controller
     }
 }
 
-        public function getLikeShops(Request $request){
-        $user=User::find($request->user_id);
-        return response()->json(
-            ['data'=>$user->getShopsFromLikes],200
-        );
-        
-    }
+
+
 }
