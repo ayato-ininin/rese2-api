@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     use HasFactory;
-   
+   public function getReservationsFromUser()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 
 }
