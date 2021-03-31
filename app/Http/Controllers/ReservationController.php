@@ -82,10 +82,6 @@ class ReservationController extends Controller
      public function getReservationsShops(Request $request){
         $user=User::find($request->user_id);
         $reserve=$user->getReservationsFromUser;
-
-        // $contain=Reservation::where('user_id',$request->user_id)->where('shop_id',$request->shop_id)->get();
-        // $reserve=$user->getShopsFromReservations;
-
         return response()->json(
             ['data'=>$reserve
         ],200
