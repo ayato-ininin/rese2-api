@@ -16,6 +16,13 @@ class LikesController extends Controller
         );
         
     }
+    public function likeCheck(Request $request){
+        $like=Like::where('user_id',$request->user_id)->where('shop_id',$request->shop_id)->get();
+        return response()->json([
+             'message'=>'likeCheck successfully',
+            'data'=>$like
+        ],200);
+    }
          public function post(Request $request)
     {
         $now = Carbon::now();

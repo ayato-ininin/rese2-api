@@ -18,6 +18,7 @@ Route::get('/users',[UsersController::class,'get']);
 Route::apiResource('/shops',ShopsController::class);
 Route::post('/likes',[LikesController::class,'post']);
 Route::delete('/likes',[LikesController::class,'delete']);
+Route::get('/likes/check',[LikesController::class,'likeCheck']);
 Route::get('/likes/shops',[LikesController::class,'getLikeShops']);
 Route::get('/reservations/shops',[ReservationController::class,'getReservationsShops']);
 Route::post('/reservations',[ReservationController::class,'post']);
