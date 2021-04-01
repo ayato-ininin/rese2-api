@@ -17,10 +17,17 @@ class LikesController extends Controller
         
     }
     public function likeCheck(Request $request){
-        $like=Like::where('user_id',$request->user_id)->where('shop_id',$request->shop_id)->get();
+        
+        $like=Like::where('user_id',$request->user_id)->where('shop_id',$request->shop_id)->first();
+    
+        if($like){
+            $result=true;
+        }else{
+            $result=false;
+        }
         return response()->json([
              'message'=>'likeCheck successfully',
-            'data'=>$like
+            'data'=>$result
         ],200);
     }
          public function post(Request $request)
