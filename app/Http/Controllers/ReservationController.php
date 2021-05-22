@@ -66,9 +66,9 @@ class ReservationController extends Controller
      * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function delete(Reservation $reservation)
+    public function delete(Request $request)
     {
-         $item=Reservation::where('id',$reservation->id)->delete();
+         $item=Reservation::where('id',$request->id)->delete();
         if ($item) {
             return response()->json([
                 'message' => 'Deleted successfully',

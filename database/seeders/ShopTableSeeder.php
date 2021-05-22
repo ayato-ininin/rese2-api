@@ -35,7 +35,7 @@ class ShopTableSeeder extends Seeder
         ],
          ['shopname'=>'ルーク',
             'genre'=>'イタリアン',
-            'area'=>'東京都',
+            'area'=>'名古屋県',
             'img_url'=>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg',
             'introduction'=>'都心にひっそりとたたずむ、古民家を改築した落ち着いた空間です。イタリアで修業を重ねたシェフによるモダンなイタリア料理とソムリエセレクトによる厳選ワインとのペアリングが好評です。ゆっくりと上質な時間をお楽しみください。'
         ],
@@ -77,14 +77,14 @@ class ShopTableSeeder extends Seeder
         ],
         ['shopname'=>'晴海',
             'genre'=>'焼肉',
-            'area'=>'大阪府',
+            'area'=>'名古屋県',
             'img_url'=>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg',
             'introduction'=>'毎年チャンピオン牛を買い付け、仙台市長から表彰されるほどの上質な仕入れをする精肉店オーナーの本当に美味しい国産牛を食べてもらいたいという思いから誕生したお店です。'
         ],
         ['shopname'=>'三子',
             'genre'=>'焼肉',
             'area'=>'福島県',
-            'img_url'=>'',
+            'img_url'=>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg',
             'introduction'=>'最高級の美味しいお肉で日々の疲れを軽減していただければと贅沢にサーロインを盛り込んだ御膳をご用意しております。'
         ],
         ['shopname'=>'八戒',
